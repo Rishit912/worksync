@@ -1,0 +1,456 @@
+<!-- this is the page for thhe worker page when worker login then this page will be opened -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>worksync</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-content">
+        <div class="logo"><img src="./images/logo/worksync1.png" alt="virtunexa" /></div>
+        <div class="menu-icon" id="menuIcon">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+
+        
+        <div class="menu" id="menu">
+          <a href="#Home">Home</a>
+          <a href="#Latestjob">latest-jobs</a>
+          <a href="#OurServices">Our Services</a>
+          <a href="#Paymentmethod">Payment Method</a>
+          <a href="#PaymentSteps">Payment steps</a>
+          <a href="#ContactUs">ContactUs</a>
+         <a href="#" id="profileLink" style="display: none;">Profile</a>
+<a href="./login-registeration/login.html" class="button" id="loginBtn">Login</a>
+<a href="./login-registeration/logout.html" class="button" id="logoutBtn" style="display: none;">Logout</a>
+
+          <div class="job-search">
+            <input type="text" id="jobSearch" placeholder="Search for jobs..." />
+            <button onclick="searchJobs()">Search</button>
+        </div>
+        </div>
+
+        
+      </div>
+    </nav>
+   <div id="profilePanel" class="profile-panel">
+  <div class="profile-header">
+    <h2>Worker Profile</h2>
+    <button id="closeProfile" title="Close">&times;</button>
+  </div>
+
+  <div class="profile-section">
+    <p><strong>Name:</strong> <span id="workerName">John Doe</span></p>
+    <p><strong>Jobs Applied:</strong> <span id="jobsCount">0</span></p>
+    <p><strong>Salary Payment:</strong> <span id="salaryStatus">Not Received</span></p>
+  </div>
+
+  <div class="profile-section">
+    <h3>Bank Details</h3>
+    <form id="bankDetailsForm">
+      <label>Account Holder Name:</label>
+      <input type="text" id="accountName" required>
+      <label>Account Number:</label>
+      <input type="text" id="accountNumber" required>
+      <label>IFSC Code:</label>
+      <input type="text" id="ifsc" required>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</div>
+
+    
+    <div class="container">
+              <img src="./images/home2.jpg" alt="home-img" class="responsive" id="Home">
+              <div class="overlay-text">
+<pre>
+<b> <strong> 
+Turn Your Skills into 
+Sucess.
+  
+<small>
+worksync connect skilled workers with job 
+Opportunities,regardless of formal education. 
+Start earning and building your future today. 
+</small>
+</strong>
+</b>
+</pre>
+</div>
+  
+<div class="clickme">
+  <a href="./apply-job/apply.html"><button type="button">Apply Now</button></a>
+</div>
+
+
+
+<!-- marqee -->
+
+<div>
+  <marquee behavior="scroll" direction="left"    class="marqee">
+
+      NO DEGREE ? NO PROBLEM! SKILLS MATTERS HERE! FIND A JOBS THAT MATCH YOUR SKILLS INSTANTLY..! 
+
+  </marquee>
+</div>
+
+<!-- this is for the h3 tag below the marqee tag -->
+
+<div >
+  <h3>
+    <b>"Talent Unutilized: India’s Skilled Workers in  Unemployment Crisis, <br>
+      <br><u style="color: rgb(71, 1, 74);">A Call for Change ! </u> "</b>
+   </h3>
+</div>
+
+<!-- image for the what to do  -->
+
+<img src="./images/im1/Group.png" alt="content" class="content">
+    
+
+
+<!-- job card section -->
+
+<div class="latest-jobs" id="Latestjob">
+  <h2 style="color: black;">Latest Job Opportunities</h2>
+  <div class="jobs-container" id="jobs-container"></div>
+  <button class="find-more-button">Find More Jobs</button>
+</div>
+
+
+<!-- services images  -->
+
+<div class="ourservices" id="OurServices">
+
+  <h2 style="color: black;">Our Services</h2>
+  <div class="scrollable-container">
+    <img src="./images/new/carpenter.png" alt="carpenter" class="image">
+    <img src="./images/new/chef.jpg" alt="carpenter" class="image">
+ <img src="./images/new/car-bike mech.jpeg" alt="carpenter" class="image">
+ <img src="./images/new/child caretaker.jpg" alt="carpenter" class="image">
+ <img src="./images/new/cleaner.jpg" alt="carpenter" class="image">
+ <img src="./images/new/construction.jpg" alt="carpenter" class="image">
+ <img src="./images/new/cook.jpg" alt="carpenter" class="image">
+ <img src="./images/new/Electrician-Home.jpg" alt="carpenter" class="image">
+ <img src="./images/new/electrician.jpg" alt="carpenter" class="image">
+ <img src="./images/new/gardener.jpg" alt="carpenter" class="image">
+ <img src="./images/new/housekeeping.jpg" alt="carpenter"class="image">
+ <img src="./images/new/industrial mechanic.jpg" alt="carpenter" class="image">
+ <img src="./images/new/painter.png" alt="carpenter" class="image">
+ <img src="./images/new/pexels-blue-bird-7218011.jpg" alt="carpenter" class="image">
+ <img src="./images/new/plumbing-at-home.jpg" alt="carpenter"class="image">
+ <img src="./images/new/reseptionist.jpg" alt="carpenter" class="image">
+ <img src="./images/new/road cleaner.jpg" alt="carpenter" class="image">
+</div>
+
+
+<br>
+
+
+ <div class="scrollable-container1">
+   
+ <img src="./images/new/carpenter.png" alt="carpenter" class="image">
+ <img src="./images/new/chef.jpg" alt="carpenter" class="image">
+ <img src="./images/new/car-bike mech.jpeg" alt="carpenter" class="image">
+ <img src="./images/new/child caretaker.jpg" alt="carpenter" class="image">
+ <img src="./images/new/cleaner.jpg" alt="carpenter" class="image">
+ <img src="./images/new/construction.jpg" alt="carpenter" class="image">
+ <img src="./images/new/cook.jpg" alt="carpenter" class="image">
+ <img src="./images/new/Electrician-Home.jpg" alt="carpenter" class="image">
+ <img src="./images/new/electrician.jpg" alt="carpenter" class="image">
+ <img src="./images/new/gardener.jpg" alt="carpenter" class="image">
+ <img src="./images/new/housekeeping.jpg" alt="carpenter"class="image">
+ <img src="./images/new/industrial mechanic.jpg" alt="carpenter" class="image">
+ <img src="./images/new/painter.png" alt="carpenter" class="image">
+ <img src="./images/new/pexels-blue-bird-7218011.jpg" alt="carpenter" class="image">
+ <img src="./images/new/plumbing-at-home.jpg" alt="carpenter"class="image">
+ <img src="./images/new/reseptionist.jpg" alt="carpenter" class="image">
+ <img src="./images/new/road cleaner.jpg" alt="carpenter" class="image">
+</div>
+
+<br>
+
+<div class="scrollable-container2">
+   
+  <img src="./images/new/carpenter.png" alt="carpenter" class="image">
+  <img src="./images/new/chef.jpg" alt="carpenter" class="image">
+  <img src="./images/new/car-bike mech.jpeg" alt="carpenter" class="image">
+  <img src="./images/new/child caretaker.jpg" alt="carpenter" class="image">
+  <img src="./images/new/cleaner.jpg" alt="carpenter" class="image">
+  <img src="./images/new/construction.jpg" alt="carpenter" class="image">
+  <img src="./images/new/cook.jpg" alt="carpenter" class="image">
+  <img src="./images/new/Electrician-Home.jpg" alt="carpenter" class="image">
+  <img src="./images/new/electrician.jpg" alt="carpenter" class="image">
+  <img src="./images/new/gardener.jpg" alt="carpenter" class="image">
+  <img src="./images/new/housekeeping.jpg" alt="carpenter"class="image">
+  <img src="./images/new/industrial mechanic.jpg" alt="carpenter" class="image">
+  <img src="./images/new/painter.png" alt="carpenter" class="image">
+  <img src="./images/new/pexels-blue-bird-7218011.jpg" alt="carpenter" class="image">
+  <img src="./images/new/plumbing-at-home.jpg" alt="carpenter"class="image">
+  <img src="./images/new/reseptionist.jpg" alt="carpenter" class="image">
+  <img src="./images/new/road cleaner.jpg" alt="carpenter" class="image">
+ </div>
+ 
+
+</div>
+
+<!-- user profile  -->
+<!-- <div class="user-profile" id="UserProfile">
+  <h2>User Profile</h2>
+  <button onclick="editProfile()">Edit Profile</button>
+  <div id="profile-info">
+      <p>Name: John Doe</p>
+      <p>Email: johndoe@example.com</p>
+      <p>Skills: Carpentry, Plumbing</p>
+      <input type="file" id="resumeUpload" />
+      <button onclick="uploadResume()">Upload Resume</button>
+  </div>
+</div> -->
+
+
+<div class="payment-method" id="Paymentmethod">
+  <h2 style="color: black;">Payment Methods</h2>
+  <div class="payment-options">
+    <div class="payment-option">
+      <h3>Credit Card</h3>
+      <p>Pay with your credit or debit card.</p>
+    </div>
+    <div class="payment-option">
+      <h3>PayPal</h3>
+      <p>Secure and convenient online payments.</p>
+    </div>
+    <div class="payment-option">
+      <h3>Bank Transfer</h3>
+      <p>Direct bank transfer for hassle-free payments.</p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="payment-method" id="PaymentSteps"> 
+  <h2 class="steps" style="color: black;">Payment steps</h2>
+  <div class="payment-options">
+    <div class="payment-option">
+      <h3>Log-in/
+        <br>sign-up</h3>
+      <p>Login into your account</p>
+    </div>
+    <div class="payment-option">
+      <h3>Add bank information</h3>
+      <p>For gettinig salary add bank information into your account</p>
+    </div>
+    <div class="payment-option">
+      <h3>Payment transfer</h3>
+      <p>Salary will be transfered directly via Admin at last day of week</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- available cities -->
+
+
+
+<section id="available-cities">
+  <div id="city-info">
+      <h2>We Are Available In These Cities</h2>
+      <div id="city-lists">
+          <div class="city-list">
+              <ul>
+                  <li>Ahmedabad</li>
+                  <li>Surat</li>
+                  <li>Vadodara</li>
+                  <li>Rajkot</li>
+                  <li>Gandhinagar</li>
+              </ul>
+          </div>
+          <div class="city-list">
+              <ul>
+                  <li>Surendranagar</li>
+                  <li>Jamnagar</li>
+                  <li>Junagadh</li>
+                  <li>Porbandar</li>
+                  <li>Bhavnagar</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div id="city-image">
+      <img src="./images/image.png" alt="Cities Image">
+  </div>
+</section>
+
+
+<!-- faq testimonial and job alerts  -->
+<div class="job-alerts">
+  <h2>Job Alerts</h2>
+  <p>Stay updated with the latest job opportunities! Subscribe now.</p>
+  
+  <div class="subscription-options">
+    <label for="jobType">Select Job Type:</label>
+    <select id="jobType">
+      <option value="all">All Job Types</option>
+      <option value="full-time">Full-Time</option>
+      <option value="part-time">Part-Time</option>
+    </select>
+  </div>
+
+  <div class="frequency-options">
+    <label for="frequency">Frequency:</label>
+    <select id="frequency">
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+    </select>
+  </div>
+  
+  <div class="input-container">
+    <input type="email" id="alertEmail" placeholder="Enter your email for job alerts" required />
+    <button onclick="subscribeAlerts()">Subscribe</button>
+  </div>
+</div>
+
+
+<!-- testimonials  -->
+
+<div class="testimonials" id="Testimonials">
+  <h2>What Our Workers Say</h2>
+  <div class="testimonial-container">
+    <div class="testimonial-card">
+      <blockquote>
+        <p>"This platform has been a **game-changer** for my career!"</p>
+        <cite>- A Thrilled User</cite>
+      </blockquote>
+    </div>
+    <div class="testimonial-card">
+      <blockquote>
+        <p>"The service is absolutely **outstanding**; I couldn't be happier!"</p>
+        <cite>- A Delighted Customer</cite>
+      </blockquote>
+    </div>
+    <div class="testimonial-card">
+      <blockquote>
+        <p>"An **incredible** experience from start to finish!"</p>
+        <cite>- A Satisfied Client</cite>
+      </blockquote>
+    </div>
+    <div class="testimonial-card">
+      <blockquote>
+        <p>"The support team is **exceptional** and always ready to help!"</p>
+        <cite>- A Grateful User</cite>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="faq-section" id="FAQs">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+      <h3>How do I apply for a job?</h3>
+      <p>You can apply for a job by clicking the 'Apply Now' button on the job card.</p>
+  </div>
+  <div class="faq-item">
+      <h3>What payment methods are available?</h3>
+      <p>We accept credit cards, PayPal, and bank transfers.</p>
+  </div>
+</div>
+
+
+
+
+<!-- contact us  -->
+
+<h2 class="cntme" id="ContactMe">Contact Us</h2>
+<div class="container6" id="contactme" >
+  <form>
+    <div class="form-group" id="ContactUs">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="email" name="email" required />
+    </div>
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</div>
+
+
+
+
+<!-- footer  -->
+
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>About Us</h4>
+      <p>Learn more about our services and mission.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Services</h4>
+     <div style="display: flex; gap: 2;">
+      
+      <ul>
+        <li><a href="#">Cook</a></li>
+        <li><a href="#">Driver</a></li>
+        <li><a href="#">Security</a></li>
+      </ul>
+
+      <ul style="margin-left: 2vw;">
+        <li><a href="#">Cleaner</a></li>
+        <li><a href="#">Electrician</a></li>
+        <li><a href="#">Mechanic</a></li>
+      </ul>
+    </div>
+    </div>
+    <div class="footer-section">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Help Center</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 WORKSYNC. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+<!-- this is for the user -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

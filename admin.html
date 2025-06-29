@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - WorkSync</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f7fa;
+    }
+
+    .navbar {
+      background-color: rgba(23, 26, 65, 0.97);
+      padding: 25px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo img {
+      width: 120px;
+    }
+
+    .navbar .menu a,
+    .navbar .menu button {
+      color: white;
+      margin-left: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .container {
+      padding: 30px;
+      min-height: 90vh;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #4f46e5;
+      color: white;
+    }
+
+    .primary-btn, .pay-btn, .delete-btn, .close-btn {
+      background-color: #4f46e5;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .pay-btn {
+      background-color: green;
+    }
+
+    .delete-btn {
+      background-color: red;
+    }
+
+    .close-btn {
+      background-color: gray;
+    }
+
+    .primary-btn:hover, .pay-btn:hover, .delete-btn:hover, .close-btn:hover {
+      opacity: 0.8;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .modal-content input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <div class="logo"><img src="./images/logo/worksync1.png" alt="WorkSync Logo" /></div>
+
+    <div class="menu" id="menu">
+      <a href="#">Dashboard</a>
+      <a href="#">Workers</a>
+      <a href="#">Payments</a>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Dashboard Body -->
+<div class="container">
+  <h1>Admin Dashboard</h1>
+
+  <div class="dashboard-grid">
+    <!-- Workers Management -->
+    <div class="card">
+      <h2>Manage Workers</h2>
+      <button class="primary-btn" onclick="openWorkerModal()">Add New Worker</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Skill</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="workerTable">
+          <tr>
+            <td>John Doe</td>
+            <td>Electrician</td>
+            <td><button class="delete-btn" onclick="removeWorker(this)">Remove</button></td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>Plumber</td>
+            <td><button class="delete-btn" onclick="removeWorker(this)">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Payments Management -->
+    <div class="card">
+      <h2>Weekly Payments</h2>
+      <button class="primary-btn" onclick="openPaymentModal()">Add Payment</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Worker</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="paymentTable">
+          <tr>
+            <td>John Doe</td>
+            <td>₹5000</td>
+            <td>
+              <button class="pay-btn" onclick="payWorker(this)">Pay</button>
+              <button class="delete-btn" onclick="removePayment(this)">Remove</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>₹4500</td>
+            <td>
+              <button class="pay-btn" onclick="payWorker(this)">Pay</button>
+              <button class="delete-btn" onclick="removePayment(this)">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Worker Modal -->
+<div class="modal" id="workerModal">
+  <div class="modal-content">
+    <h2>Add Worker</h2>
+    <input type="text" id="workerName" placeholder="Worker Name" />
+    <input type="text" id="workerSkill" placeholder="Skill" />
+    <button class="primary-btn" onclick="addWorker()">Add</button>
+    <button class="close-btn" onclick="closeWorkerModal()">Close</button>
+  </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="modal" id="paymentModal">
+  <div class="modal-content">
+    <h2>Add Payment</h2>
+    <input type="text" id="paymentWorkerName" placeholder="Worker Name" />
+    <input type="text" id="paymentAmount" placeholder="Amount (₹)" />
+    <button class="primary-btn" onclick="addPayment()">Add</button>
+    <button class="close-btn" onclick="closePaymentModal()">Close</button>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  // Logout Function
+  function logout() {
+    localStorage.clear(); // Clear any stored data
+    window.location.href = "./login-registeration/login.html"; // Redirect to login page
+  }
+
+  // Worker Modal Functions
+  function openWorkerModal() {
+    document.getElementById('workerModal').style.display = 'flex';
+  }
+
+  function closeWorkerModal() {
+    document.getElementById('workerModal').style.display = 'none';
+  }
+
+  function addWorker() {
+    const name = document.getElementById('workerName').value;
+    const skill = document.getElementById('workerSkill').value;
+    if (name && skill) {
+      const table = document.getElementById('workerTable');
+      const row = `<tr><td>${name}</td><td>${skill}</td><td><button class="delete-btn" onclick="removeWorker(this)">Remove</button></td></tr>`;
+      table.innerHTML += row;
+      closeWorkerModal();
+    } else {
+      alert('Please fill all fields.');
+    }
+  }
+
+  function removeWorker(button) {
+    button.parentElement.parentElement.remove();
+  }
+
+  // Payment Modal Functions
+  function openPaymentModal() {
+    document.getElementById('paymentModal').style.display = 'flex';
+  }
+
+  function closePaymentModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+  }
+
+  function addPayment() {
+    const name = document.getElementById('paymentWorkerName').value;
+    const amount = document.getElementById('paymentAmount').value;
+    if (name && amount) {
+      const table = document.getElementById('paymentTable');
+      const row = `
+        <tr>
+          <td>${name}</td>
+          <td>₹${amount}</td>
+          <td>
+            <button class="pay-btn" onclick="payWorker(this)">Pay</button>
+            <button class="delete-btn" onclick="removePayment(this)">Remove</button>
+          </td>
+        </tr>`;
+      table.innerHTML += row;
+      closePaymentModal();
+    } else {
+      alert('Please fill all fields.');
+    }
+  }
+
+  function payWorker(button) {
+    button.innerHTML = 'Paid';
+    button.disabled = true;
+    button.style.backgroundColor = 'gray';
+  }
+
+  function removePayment(button) {
+    button.parentElement.parentElement.remove();
+  }
+</script>
+
+</body>
+</html>

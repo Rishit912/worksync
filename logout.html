@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Logging out...</title>
+</head>
+<body>
+  <script>
+    localStorage.removeItem('workerLoggedIn');
+    localStorage.removeItem('workerName');
+    localStorage.removeItem('workerEmail');
+    localStorage.removeItem('workerRole');
+    localStorage.removeItem('jobsCount');
+    localStorage.removeItem('salaryStatus');
+
+    alert("🚪 Logged out!");
+    window.location.href = "login.html";
+  </script>
+</body>
+</html>
