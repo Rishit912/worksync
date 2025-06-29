@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="outer-container">
+        <div class="container">
+            <!-- Login Form -->
+            <div class="form-container">
+                <img src="worksync1.png" alt="Logo" class="logo">
+                <div class="form-header">
+                    <h2>Login</h2>
+                    <p>Welcome back! Please login to your account.</p>
+                </div>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email" required class="input-field">
+                    <input type="password" id="loginPassword" placeholder="Password" required class="input-field">
+                    <select id="loginRole" required class="input-field">
+                        <option value="" disabled selected>Select Role</option>
+                        <option value="user">User</option>
+                        <option value="worker">Worker</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <button type="submit">Login</button>
+                    <p><a href="#forgot" onclick="showForgot()">Forgot Password?</a></p>
+                    <p>Don't have an account? <a href="#register" onclick="showRegister()">Register</a></p>
+                </form>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form-container" id="register" style="display:none;">
+                <div class="form-header">
+                    <h2>Register</h2>
+                    <p>Create your account.</p>
+                </div>
+                <form id="registrationForm">
+                    <input type="text" id="registerName" placeholder="Full Name" required class="input-field">
+                    <input type="email" id="registerEmail" placeholder="Email" required class="input-field">
+                    <input type="password" id="registerPassword" placeholder="Password" required class="input-field">
+                    <select id="registerRole" required class="input-field">
+                        <option value="" disabled selected>Select Role</option>
+                        <option value="user">User</option>
+                        <option value="worker">Worker</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <button type="submit">Register</button>
+                    <p>Already have an account? <a href="#login" onclick="showLogin()">Login</a></p>
+                </form>
+            </div>
+
+            <!-- Forgot Password Form -->
+            <div class="form-container" id="forgot" style="display:none;">
+                <div class="form-header">
+                    <h2>Forgot Password</h2>
+                    <p>Enter your email to reset your password.</p>
+                </div>
+                <form id="forgotForm">
+                    <input type="email" placeholder="Email" required class="input-field">
+                    <button type="submit">Reset Password</button>
+                    <p>Remembered your password? <a href="#login" onclick="showLogin()">Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

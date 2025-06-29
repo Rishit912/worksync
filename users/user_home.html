@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home - Worker Service</title>
+    <link rel="stylesheet" href="user_style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo"><img src="../images/logo/worksync1.png" alt="Worker Service"></div>
+            <div class="menu">
+                
+                        <a href="#home">Home</a>
+                        <a href="#jobListings">Job Listings</a>
+                        <a href="#profile" id="profileButton">Profile</a>
+                        <button onclick="logout()" class="button">Logout</button>
+    
+                  
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>Welcome to Worker Service</h1>
+        
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for jobs..." onkeyup="filterJobs()">
+            </div>
+            <div class="job-listings" id="jobListings"></div>
+            
+        <p>Find skilled workers for your projects!</p>
+        
+        <div class="job-listings" id="jobListings"></div>
+
+
+
+        
+
+
+        <div class="appointment-module" id="appointmentModule" style="display: none;">
+            <h2>Book Appointment</h2>
+            <div id="selectedWorker"></div>
+            <label for="timeSlot">Select Time Slot:</label>
+            <select id="timeSlot">
+                <option value="09:00 AM">09:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="01:00 PM">01:00 PM</option>
+                <option value="02:00 PM">02:00 PM</option>
+                <option value="03:00 PM">03:00 PM</option>
+            </select>
+            <button id="confirmAppointmentButton">Confirm Appointment</button>
+        </div>
+
+        <div class="payment-module" id="paymentMethods" style="display: none;">
+            <h2>Payment Options</h2>
+            <form id="paymentForm">
+                <label for="cardName">Name on Card:</label>
+                <input type="text" id="cardName" required>
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" required>
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" placeholder="MM/YY" required>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" required>
+                <button type="submit">Make Payment</button>
+            </form>
+        </div>
+
+        <div class="profile-module" id="profile" style="display: none;">
+            <h2>User Profile</h2>
+            <div id="profileInfo"></div>
+            <button id="editProfileButton">Edit Profile</button>
+            <h3>Appointment History</h3>
+            <div id="appointmentHistory"></div>
+        </div>
+    </div>
+
+
+
+
+    
+    <script src="user_script.js"></script>
+</body>
+</html>
